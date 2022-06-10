@@ -1,0 +1,13 @@
+li{
+    list-style-type: none;
+}
+ul{
+    padding-inline-start: 0;
+    
+}
+.itemList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+}
