@@ -1,10 +1,9 @@
 const express = require('express')
 const app = express()
 require('./db/Config')
-const dataSchema = require('./db/data')
 const dataModel = require('./db/data')
 const cors = require('cors')
-const mongoose = require("mongoose")
+const user = require('./db/user')
 // const objectId =  mongoose.Schema.Types.ObjectId
 
 app.use(express.json())
@@ -39,6 +38,24 @@ app.delete('/delete/:id', async (req,resp) => {
     const result = await dataModel.deleteOne({_id : req.params.id})
     resp.send(result)
     // resp.status(200).json({message: "delted successfully"})
+})
+
+
+
+
+// =====user api============
+
+app.post('/signup', async (req,resp) => { 
+    const response = await user.create(req.body)
+    resp.send(response)
+})
+app.post('/login', async (req,resp) => { 
+    const response = await user.findOne(req.body).select("-password")
+    if(response){
+        resp.send(response)
+    }else{
+        resp.send({"Result":"No user found"})
+    }
 })
 
 app.listen(5000)

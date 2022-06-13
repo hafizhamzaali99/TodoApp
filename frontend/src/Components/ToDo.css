@@ -11,3 +11,13 @@ ul{
     align-items: center;
     margin: 0 20px;
 }
+.container{
+    text-align: center;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    height: 100vh;
+    margin-top: 50px;
+  }
+  
+  

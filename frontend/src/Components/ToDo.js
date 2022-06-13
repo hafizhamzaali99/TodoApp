@@ -47,6 +47,7 @@ const ToDo = () => {
             method:"Delete"
         })
         const result = await response.json()
+        console.log(result)
         collectData()
         // let allData = [...data]
         // allData.splice(index,1)
@@ -71,6 +72,7 @@ const ToDo = () => {
             body: JSON.stringify({inputData})
         })
         const result = await response.json()
+        console.log(result)
         collectData()
         // let collection = [...data]
         // collection.splice(_id,1,inputData)
@@ -81,18 +83,18 @@ const ToDo = () => {
 
     return (
         <div>
-            <h1 style={{textDecoration:"underline"}}>ToDo App</h1>
             <div style={{
                 display: "flex",
                 alignItem: "center",
-                justifyContent: "space-around",
+                justifyContent: "space-between",
             }}>
                 <TextField 
-                placeholder='Enter Items' 
+                // placeholder='Enter Items' 
                 id="outlined-basic" 
                 variant="outlined" 
                 value={inputData} 
                 onChange={handleChanges}
+                label="Enter Items"
                 />
                 {isUpdate ? 
                 <IconButton 
